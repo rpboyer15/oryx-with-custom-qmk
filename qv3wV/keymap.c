@@ -138,15 +138,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case KC_QUOT: // Handle the ' key
       if (record->event.pressed) {
-	                // Check if either Shift key is being held
-                if (get_mods() & MOD_MASK_SHIFT) {
-                    uint8_t mods = get_mods();
-                    unregister_mods(MOD_MASK_SHIFT);  // Temporarily disable Shift
-                    tap_code(KC_MINUS);  // Send the minus key (outputs underscore with Shift)
-                    set_mods(mods);  // Restore the Shift state
-                } else {
-                    tap_code(KC_QUOT);  // Send the quote (')
-                }
+        // Check if either Shift key is being held
+        if (get_mods() & MOD_MASK_SHIFT) {
+          uint8_t mods = get_mods();
+          unregister_mods(MOD_MASK_SHIFT);  // Temporarily disable Shift
+	  tap_code16(S(KC_MINUS));
+          set_mods(mods);  // Restore the Shift state
+        } else {
+          tap_code(KC_QUOT);  // Send the quote (')
+        }
       }
       return false;  // Skip further processing of this keypress
     case RGB_SLD:
