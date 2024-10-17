@@ -136,7 +136,19 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-
+    case KC_QUOT: // Handle the ' key
+      if (record->event.pressed) {
+        // Check if either Shift key is being held
+        if (get_mods() & MOD_MASK_SHIFT) {
+        // Send the underscore (_) instead of the quote (')
+	  unregister_mods(MOD_MASK_SHIFT);  // Temporarily disable Shift
+	  tap_code(KC_UNDS);  // Send the underscore
+	  set_mods(get_mods() | MOD_MASK_SHIFT);  // Re-enable Shift
+	} else {
+	  tap_code(KC_QUOT);  // Send the quote
+	}
+      }
+      return false;  // Skip further processing of this keypress
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
