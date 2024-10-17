@@ -4,7 +4,7 @@
 */
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "qv3wV/nXRbD"
+#define SERIAL_NUMBER "qv3wV/jJRGd"
 #define LAYER_STATE_8BIT
 
 #define RGB_MATRIX_STARTUP_SPD 60
