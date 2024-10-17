@@ -142,8 +142,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (get_mods() & MOD_MASK_SHIFT) {
         // Send the underscore (_) instead of the quote (')
 	  unregister_mods(MOD_MASK_SHIFT);  // Temporarily disable Shift
-	  tap_code(KC_MINUS);  // Send the underscore
-	  register_mods(get_mods() | MOD_MASK_SHIFT);  // Re-enable Shift
+	  tap_code16(S(KC_MINUS));
+	  register_mods(MOD_MASK_SHIFT);  // Re-enable Shift
 	} else {
 	  tap_code(KC_QUOT);  // Send the quote
 	}
