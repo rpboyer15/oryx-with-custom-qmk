@@ -140,10 +140,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         // Check if either Shift key is being held
         if (get_mods() & MOD_MASK_SHIFT) {
-          uint8_t mods = get_mods();
+	  uint8_t mods = get_mods();
           unregister_mods(MOD_MASK_SHIFT);  // Temporarily disable Shift
-	  tap_code(KC_UNDS);
-          set_mods(mods);  // Restore the Shift state
+          tap_code(KC_MINUS);  // Send the minus key
+          register_mods(MOD_BIT(KC_LSHIFT));  // Temporarily apply Shift
+          unregister_mods(MOD_BIT(KC_LSHIFT)); // Release Shift
+          set_mods(mods);  // Restore the original Shift state
         } else {
           tap_code(KC_QUOT);  // Send the quote (')
         }
