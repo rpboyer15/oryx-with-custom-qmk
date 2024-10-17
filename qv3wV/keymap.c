@@ -142,7 +142,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (get_mods() & MOD_MASK_SHIFT) {
           uint8_t mods = get_mods();
           unregister_mods(MOD_MASK_SHIFT);  // Temporarily disable Shift
-	  tap_code16(S(KC_MINUS));
+	  tap_code(KC_UNDS);
           set_mods(mods);  // Restore the Shift state
         } else {
           tap_code(KC_QUOT);  // Send the quote (')
