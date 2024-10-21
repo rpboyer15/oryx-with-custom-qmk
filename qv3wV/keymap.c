@@ -14,22 +14,22 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS =
     sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 enum custom_keycodes {
-  SMTD_KEYCODES_BEGIN = SAFE_RANGE,
-  CKC_R,
-  CKC_T,
-  CKC_S,
-  SMTD_KEYCODES_END,
+  // SMTD_KEYCODES_BEGIN = SAFE_RANGE,
+  // CKC_R,
+  // CKC_T,
+  // CKC_S,
+  // SMTD_KEYCODES_END,
   RGB_SLD = ML_SAFE_RANGE,
 };
-#include "sm_td.h"
+// #include "sm_td.h"
 
-void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
-  switch (keycode) {
-    SMTD_MT(CKC_R, KC_R, KC_LEFT_CTRL)
-    SMTD_MT(CKC_T, KC_T, KC_LEFT_ALT)
-    SMTD_MT(CKC_S, KC_S, KC_LEFT_GUI)
-  }
-}
+// void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+//   switch (keycode) {
+//     SMTD_MT(CKC_R, KC_R, KC_LEFT_CTRL)
+//     SMTD_MT(CKC_T, KC_T, KC_LEFT_ALT)
+//     SMTD_MT(CKC_S, KC_S, KC_LEFT_GUI)
+//   }
+// }
 
 enum tap_dance_codes {
   DANCE_0,
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_SCLN,        KC_B,           KC_L,           KC_D,           KC_W,           KC_Z,                                           KC_QUOTE,       KC_F,           KC_O,           KC_U,           KC_J,           KC_TRANSPARENT, 
-    KC_COMMA,       KC_N,           CKC_R,          CKC_T,          CKC_S,          KC_G,                                           KC_Y,           MT(MOD_RGUI, KC_H),MT(MOD_RALT, KC_A),MT(MOD_RCTL, KC_E),KC_I,           KC_ENTER,       
+    KC_COMMA,       KC_N,           KC_R,           KC_T,           KC_S,           KC_G,                                           KC_Y,           MT(MOD_RGUI, KC_H),MT(MOD_RALT, KC_A),MT(MOD_RCTL, KC_E),KC_I,           KC_ENTER,       
     KC_TRANSPARENT, KC_Q,           KC_X,           KC_M,           KC_C,           KC_V,                                           KC_K,           KC_P,           KC_DOT,         KC_MINUS,       KC_SLASH,       KC_TRANSPARENT, 
                                                     LT(1,KC_SPACE), TD(DANCE_0),                                    KC_LEFT_SHIFT,  MEH_T(KC_SPACE)
   ),
@@ -145,7 +145,7 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_smtd(keycode, record)) { return false; }
+  // if (!process_smtd(keycode, record)) { return false; }
   if (!process_custom_shift_keys(keycode, record)) { return false; }
   switch (keycode) {
 
