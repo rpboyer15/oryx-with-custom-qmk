@@ -183,8 +183,10 @@ void dance_0_reset(tap_dance_state_t *state, void *user_data);
 void dance_0_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[0].step = dance_step(state);
     switch (dance_state[0].step) {
+        case SINGLE_TAP: layer_move(3); break;
         case SINGLE_HOLD: layer_on(2); break;
         case DOUBLE_TAP: layer_move(3); break;
+        case DOUBLE_SINGLE_TAP: layer_move(3); break;
     }
 }
 
