@@ -26,7 +26,7 @@ enum custom_keycodes {
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
   switch (keycode) {
     SMTD_MT(CKC_R, KC_R, KC_LEFT_CTRL)
-    SMTD_MT(CKC_R, KC_T, KC_LEFT_ALT)
+    SMTD_MT(CKC_T, KC_T, KC_LEFT_ALT)
     SMTD_MT(CKC_S, KC_S, KC_LEFT_GUI)
   }
 }
