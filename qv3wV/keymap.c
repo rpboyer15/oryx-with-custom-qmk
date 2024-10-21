@@ -132,6 +132,7 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_custom_shift_keys(keycode, record)) { return false; }
   switch (keycode) {
 
     case RGB_SLD:
