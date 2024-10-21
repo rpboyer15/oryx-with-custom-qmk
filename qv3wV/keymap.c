@@ -1,7 +1,17 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
+#include "features/custom_shift_keys.h"
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
+
+const custom_shift_key_t custom_shift_keys[] = {
+  {KC_QUOT , KC_UNDS}, // Shift ' is _
+  {KC_COMM, KC_QUES}, // Shift , is ?
+  {KC_MINS, KC_DQUO}, // Shift - is "
+  {KC_SLSH, KC_LABK}, // Shift / is < 
+};
+uint8_t NUM_CUSTOM_SHIFT_KEYS =
+    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
