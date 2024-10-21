@@ -14,10 +14,22 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS =
     sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 enum custom_keycodes {
+  SMTD_KEYCODES_BEGIN = SAFE_RANGE,
+  CKC_R,
+  CKC_T,
+  CKC_S,
+  SMTD_KEYCODES_END,
   RGB_SLD = ML_SAFE_RANGE,
 };
+#include "sm_td.h"
 
-
+void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+  switch (keycode) {
+    SMTD_MT(CKC_R, KC_R, KC_LEFT_CTRL)
+    SMTD_MT(CKC_T, KC_T, KC_LEFT_ALT)
+    SMTD_MT(CKC_S, KC_S, KC_LEFT_GUI)
+  }
+}
 
 enum tap_dance_codes {
   DANCE_0,
@@ -133,6 +145,7 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_smtd(keycode, record)) { return false; }
   if (!process_custom_shift_keys(keycode, record)) { return false; }
   switch (keycode) {
 
