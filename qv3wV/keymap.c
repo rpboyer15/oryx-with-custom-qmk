@@ -40,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    LALT(LGUI(LCTL(KC_A))),KC_F15,         KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_TRANSPARENT, KC_NO,                                          KC_F12,         KC_F7,          KC_F8,          KC_F9,          KC_NO,          KC_NO,          
-    LALT(LGUI(LCTL(KC_H))),KC_F14,         MT(MOD_LCTL, KC_MEDIA_PREV_TRACK),MT(MOD_LALT, KC_MEDIA_NEXT_TRACK),KC_TRANSPARENT, KC_NO,                                          KC_F11,         KC_F4,          KC_F5,          KC_F6,          KC_NO,          KC_NO,          
+    LALT(LCTL(LSFT(KC_4))),KC_F15,         KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_TRANSPARENT, KC_NO,                                          KC_F12,         KC_F7,          KC_F8,          KC_F9,          KC_NO,          KC_NO,          
+    LALT(LCTL(LSFT(KC_5))),KC_F14,         MT(MOD_LCTL, KC_MEDIA_PREV_TRACK),MT(MOD_LALT, KC_MEDIA_NEXT_TRACK),KC_TRANSPARENT, KC_NO,                                          KC_F11,         KC_F4,          KC_F5,          KC_F6,          KC_NO,          KC_NO,          
     KC_TRANSPARENT, KC_MEDIA_PLAY_PAUSE,KC_MS_WH_RIGHT, KC_MS_WH_LEFT,  KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_F10,         KC_F1,          KC_F2,          KC_F3,          KC_NO,          TO(4),          
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
